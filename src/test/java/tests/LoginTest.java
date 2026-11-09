@@ -50,7 +50,7 @@ public class LoginTest {
 
         driver.findElement(By.id("login-button")).click();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("inventory"), "Login failed");
+        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Login failed");
     }
 
     @Test
