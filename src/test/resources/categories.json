@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Assertion Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*(Login failed|Expected login error was not displayed).*"
+  },
+  {
+    "name": "Automation and Environment Failures",
+    "matchedStatuses": ["failed"],
+    "traceRegex": "(?s).*(WebDriverException|SessionNotCreatedException|TimeoutException|Connection refused).*"
+  }
+]
