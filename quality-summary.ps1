@@ -23,6 +23,19 @@ else {
     $rate = 0
 }
 
+# Generate dynamic HTML dashboard
+$html = Get-Content "dashboard.html" -Raw
+
+$html = $html.Replace("{{TOTAL}}", "$total")
+$html = $html.Replace("{{PASSED}}", "$passed")
+$html = $html.Replace("{{FAILED}}", "$($failures + $errors)")
+$html = $html.Replace("{{SKIPPED}}", "$skipped")
+$html = $html.Replace("{{RATE}}", "$rate%")
+
+New-Item -ItemType Directory -Force -Path "target/dashboard" | Out-Null
+
+Set-Content -Path "target/dashboard/dashboard.html" -Value $html -Encoding UTF8
+
 Write-Host "========== TEST QUALITY SUMMARY =========="
 Write-Host "Total Tests: $total"
 Write-Host "Passed Tests: $passed"

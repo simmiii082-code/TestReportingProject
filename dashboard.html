@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Quality Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 { text-align: center; }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 180px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .passed { color: #16a34a; }
+        .failed { color: #dc2626; }
+        .skipped { color: #d97706; }
+        .rate { color: #2563eb; }
+    </style>
+</head>
+<body>
+
+<h1>Test Quality Dashboard</h1>
+<p style="text-align:center;">Automated Test Execution Report</p>
+
+<div class="container">
+    <div class="card">
+        <h3>Total Tests</h3>
+        <div class="number" id="total">{{TOTAL}}</div>
+    </div>
+
+    <div class="card">
+        <h3>Passed Tests</h3>
+        <div class="number passed" id="passed">{{PASSED}}</div>
+    </div>
+
+    <div class="card">
+        <h3>Failed Tests</h3>
+        <div class="number failed" id="failed">{{FAILED}}</div>
+    </div>
+
+    <div class="card">
+        <h3>Skipped Tests</h3>
+        <div class="number skipped" id="skipped">{{SKIPPED}}</div>
+    </div>
+
+    <div class="card">
+        <h3>Pass Percentage</h3>
+        <div class="number rate" id="rate">{{RATE}}</div>
+    </div>
+</div>
+
+</body>
+</html>
