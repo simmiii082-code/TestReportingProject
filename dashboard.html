@@ -40,6 +40,34 @@
         .failed { color: #dc2626; }
         .skipped { color: #d97706; }
         .rate { color: #2563eb; }
+
+        .chart-container {
+            background: white;
+            padding: 25px;
+            margin: 35px auto;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        .bar {
+            height: 25px;
+            border-radius: 5px;
+            margin: 12px 0;
+        }
+
+        .pass-bar {
+            background: #16a34a;
+        }
+
+        .fail-bar {
+            background: #dc2626;
+        }
+
+        .chart-label {
+            font-weight: bold;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -51,6 +79,18 @@
     <div class="card">
         <h3>Total Tests</h3>
         <div class="number" id="total">{{TOTAL}}</div>
+    </div>
+
+    <div class="chart-container">
+        <h2>Test Execution Results</h2>
+
+        <div class="chart-label">Passed Tests</div>
+        <div class="bar pass-bar" id="passedBar"
+            style="width: {{PASSED_WIDTH}}%;"></div>
+
+        <div class="chart-label">Failed Tests</div>
+        <div class="bar fail-bar" id="failedBar"
+            style="width: {{FAILED_WIDTH}}%;"></div>
     </div>
 
     <div class="card">

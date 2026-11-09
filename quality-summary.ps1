@@ -23,6 +23,14 @@ else {
     $rate = 0
 }
 
+$passedWidth = 0
+$failedWidth = 0
+
+if ($total -gt 0) {
+    $passedWidth = [math]::Round(($passed / $total) * 100, 2)
+    $failedWidth = [math]::Round((($failures + $errors) / $total) * 100, 2)
+}
+
 # Generate dynamic HTML dashboard
 $html = Get-Content "dashboard.html" -Raw
 
@@ -31,6 +39,8 @@ $html = $html.Replace("{{PASSED}}", "$passed")
 $html = $html.Replace("{{FAILED}}", "$($failures + $errors)")
 $html = $html.Replace("{{SKIPPED}}", "$skipped")
 $html = $html.Replace("{{RATE}}", "$rate%")
+$html = $html.Replace("{{PASSED_WIDTH}}", "$passedWidth")
+$html = $html.Replace("{{FAILED_WIDTH}}", "$failedWidth")
 
 New-Item -ItemType Directory -Force -Path "target/dashboard" | Out-Null
 
